@@ -4,7 +4,7 @@ import Head from "next/head";
 import Link from "next/link";
 import styles from "../../styles/Home.module.css";
 
-const RENDER_DELAY = 5000;
+const RENDER_DELAY = 1000;
 
 type DeferredProps = {
   message: string;
@@ -63,7 +63,7 @@ export const getStaticProps: GetStaticProps<DeferredProps> = async (
 
 export const getStaticPaths: GetStaticPaths = (context) => {
   return {
-    fallback: true,
+    fallback: "blocking",
     paths: [],
   };
 };
