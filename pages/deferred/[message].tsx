@@ -49,14 +49,21 @@ export const getStaticProps: GetStaticProps<DeferredProps> = async (
 ) => {
   await new Promise((res) => setTimeout(res, RENDER_DELAY));
 
-  const message = context.params?.message;
-  if (!message)
+  let message = context.params?.message;
+  if (!message) {
     return {
       notFound: true,
     };
+  }
+  if (Array.isArray(message)) {
+    message = message.join(" ");
+  }
+  if (context.preview) {
+    message = `${message} (preview)`;
+  }
   return {
     props: {
-      message: Array.isArray(message) ? message.join(" ") : message,
+      message,
     },
   };
 };
