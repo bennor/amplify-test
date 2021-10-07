@@ -22,6 +22,12 @@ const Home: NextPage = () => {
         <Link href="/api/test">
           <a>API route</a>
         </Link>
+        <Link href="/api/preview">
+          <a>Enable preview</a>
+        </Link>
+        <Link href="/api/exit-preview">
+          <a>Exit preview</a>
+        </Link>
       </main>
     </div>
   );
